@@ -3,6 +3,7 @@ import {ApiResponse} from 'apisauce';
 import {Movie} from '../types/movie';
 import MovieActions, {MovieTypes} from '../reduxs/reducer/MovieReducer';
 import api from '../services';
+import {MovieHelper} from '../utils';
 
 function* getMovies() {
   const response: ApiResponse<Movie[]> = yield call(api.getDcSuperheroes);
@@ -12,14 +13,11 @@ function* getMovies() {
     return;
   }
 
-  const movieList = response.data?.map(movie => {
-    return {
-      ...movie,
-      textForSearch: `${movie.name}|${movie.alterEgo}|${movie.comic}|${movie.description}`,
-    };
-  });
-
-  yield put(MovieActions.getMoviesSuccess(movieList));
+  yield put(
+    MovieActions.getMoviesSuccess(
+      MovieHelper.transformMovieListAbleToSearch(response.data),
+    ),
+  );
 }
 
 export default function* rootSaga() {
