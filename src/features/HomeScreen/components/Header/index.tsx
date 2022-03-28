@@ -29,12 +29,7 @@ function Header() {
 
     return (
       <TouchableOpacity style={styles.clearBtn} onPress={onClearSearch}>
-        <Icons
-          name="cancel"
-          size={20}
-          color={Colors.white}
-          style={styles.icon}
-        />
+        <Icons name="cancel" size={20} color={Colors.white} />
       </TouchableOpacity>
     );
   }
@@ -47,7 +42,7 @@ function Header() {
         </Text>
         <FastImage source={Images.icAvatar} style={styles.headerAvatar} />
       </View>
-      <View>
+      <View style={styles.inputContainer}>
         <TextInput
           style={styles.textInput}
           returnKeyType="done"
