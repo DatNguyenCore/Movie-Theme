@@ -4,6 +4,7 @@ import {persistStore, persistReducer} from 'redux-persist';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from '../saga';
 import RootReducer from './reducer/rootReducer';
+import {MovieState} from './reducer/MovieReducer/types';
 
 const persistConfig = {
   key: 'root',
@@ -22,5 +23,9 @@ sagaMiddleware.run(rootSaga);
 export interface RootState {}
 
 export const persistor = persistStore(store);
+
+export interface RootState {
+  movie: MovieState;
+}
 
 export default store;

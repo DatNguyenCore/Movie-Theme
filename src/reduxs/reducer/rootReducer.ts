@@ -1,8 +1,6 @@
 import {combineReducers} from 'redux';
 
-export interface RootState {}
-
-const rootReducers = combineReducers<RootState>({
+const rootReducers = combineReducers({
   movie: require('./MovieReducer').reducer,
 });
 

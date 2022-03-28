@@ -1,4 +1,5 @@
 import Apisauce from 'apisauce';
+import {Movie} from '../types/movie';
 
 function create(BASE_URL = 'https://my-json-server.typicode.com') {
   const api = Apisauce.create({
@@ -9,9 +10,9 @@ function create(BASE_URL = 'https://my-json-server.typicode.com') {
     },
   });
 
-  const getDcSuperheroes = async () => {
-    return api.get('/Isaacmeedinaa/dc-superheroes/superheroes');
-  };
+  async function getDcSuperheroes() {
+    return api.get<Movie>('/Isaacmeedinaa/dc-superheroes/superheroes');
+  }
 
   return {getDcSuperheroes};
 }
