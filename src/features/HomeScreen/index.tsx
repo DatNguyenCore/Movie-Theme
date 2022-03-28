@@ -40,7 +40,7 @@ function HomeScreen({navigation}: Props) {
 
   const movieList = useMemo(() => {
     return data.filter(movie => {
-      return movie.name.toLocaleLowerCase().includes(textSearch);
+      return movie.textForSearch.toLocaleLowerCase().includes(textSearch);
     });
   }, [data, textSearch]);
 

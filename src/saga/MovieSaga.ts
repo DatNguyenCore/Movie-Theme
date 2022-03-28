@@ -5,14 +5,21 @@ import MovieActions, {MovieTypes} from '../reduxs/reducer/MovieReducer';
 import api from '../services';
 
 function* getMovies() {
-  const response: ApiResponse<Movie> = yield call(api.getDcSuperheroes);
+  const response: ApiResponse<Movie[]> = yield call(api.getDcSuperheroes);
 
   if (!response.ok) {
     yield put(MovieActions.getMoviesFailure());
     return;
   }
 
-  yield put(MovieActions.getMoviesSuccess(response.data));
+  const movieList = response.data?.map(movie => {
+    return {
+      ...movie,
+      textForSearch: `${movie.name}|${movie.alterEgo}|${movie.comic}|${movie.description}`,
+    };
+  });
+
+  yield put(MovieActions.getMoviesSuccess(movieList));
 }
 
 export default function* rootSaga() {

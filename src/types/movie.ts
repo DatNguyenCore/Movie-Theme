@@ -5,4 +5,5 @@ export interface Movie {
   alterEgo: string;
   imgUrl: string;
   comic: string;
+  textForSearch: string;
 }

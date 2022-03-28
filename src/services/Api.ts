@@ -11,7 +11,7 @@ function create(BASE_URL = 'https://my-json-server.typicode.com') {
   });
 
   async function getDcSuperheroes() {
-    return api.get<Movie>('/Isaacmeedinaa/dc-superheroes/superheroes');
+    return api.get<Movie[]>('/Isaacmeedinaa/dc-superheroes/superheroes');
   }
 
   return {getDcSuperheroes};
