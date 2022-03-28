@@ -33,7 +33,7 @@ const Colors = {
     dark: '#777777',
     light: '#B0B0B0',
     lighter: '#ECECEC',
-    lightest: '#F8F8F8',
+    lightest: '#636465',
   },
 
   inputBorder: '#CDDEFE',
