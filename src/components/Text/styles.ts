@@ -53,6 +53,9 @@ const styles = StyleSheet.create({
   success: {
     color: Colors.success,
   },
+  lightGrey: {
+    color: Colors.grey.lighter,
+  },
 });
 
 export default styles;
