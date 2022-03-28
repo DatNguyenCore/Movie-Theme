@@ -56,6 +56,9 @@ const styles = StyleSheet.create({
   lightGrey: {
     color: Colors.grey.lighter,
   },
+  highGrey: {
+    color: '#7d818f',
+  },
 });
 
 export default styles;
