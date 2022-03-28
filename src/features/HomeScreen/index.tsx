@@ -10,6 +10,7 @@ import {NavigationProps} from '../../navigation/configs/NavigationProps';
 import Screen from '../../navigation/configs/Screen';
 import MovieActions from '../../reduxs/reducer/MovieReducer';
 import {RootState} from '../../reduxs';
+import {Colors} from '../../themes';
 
 interface Props extends NavigationProps<Screen.MovieDetail> {}
 
@@ -22,7 +23,9 @@ function HomeScreen({navigation}: Props) {
     dispatch(MovieActions.getMovies());
   }, [dispatch]);
 
-  function onRefresh() {}
+  function onRefresh() {
+    dispatch(MovieActions.getMovies());
+  }
 
   function renderFooter() {
     if (fetching) {
@@ -39,7 +42,11 @@ function HomeScreen({navigation}: Props) {
       <FlatList
         data={data}
         refreshControl={
-          <RefreshControl refreshing={false} onRefresh={onRefresh} />
+          <RefreshControl
+            tintColor={Colors.white}
+            refreshing={false}
+            onRefresh={onRefresh}
+          />
         }
         ListHeaderComponent={<Header />}
         ListFooterComponent={renderFooter()}
