@@ -14,12 +14,14 @@ export interface MovieActionTypes {
   GET_MOVIES: 'GET_MOVIES';
   GET_MOVIES_SUCCESS: 'GET_MOVIES_SUCCESS';
   GET_MOVIES_FAILURE: 'GET_MOVIES_FAILURE';
+  SEARCH_MOVIE: 'SEARCH_MOVIE';
 }
 
 const {Types, Creators} = createActions({
   getMovies: [],
   getMoviesSuccess: ['data'],
   getMoviesFailure: [],
+  searchMovie: ['text'],
 });
 
 export const MovieTypes = Types;
@@ -47,9 +49,21 @@ const getMoviesFailure = (state: MovieState) => {
   };
 };
 
+const searchMovie = (state: MovieState, {text}: {text: string}) => {
+  return {
+    ...state,
+    data: state.data.filter(movie => {
+      return movie.name
+        .toLocaleLowerCase()
+        .startsWith(text.toLocaleLowerCase());
+    }),
+  };
+};
+
 // =========== Create Reducer ===========
 export const reducer = createReducer<any>(INITIAL_STATE, {
   [Types.GET_MOVIES]: getMovies,
   [Types.GET_MOVIES_SUCCESS]: getMoviesSuccess,
   [Types.GET_MOVIES_FAILURE]: getMoviesFailure,
+  [Types.SEARCH_MOVIE]: searchMovie,
 });

@@ -48,6 +48,7 @@ function HomeScreen({navigation}: Props) {
             onRefresh={onRefresh}
           />
         }
+        keyboardShouldPersistTaps="handled"
         ListHeaderComponent={<Header />}
         ListFooterComponent={renderFooter()}
         ListEmptyComponent={renderEmptyList()}
