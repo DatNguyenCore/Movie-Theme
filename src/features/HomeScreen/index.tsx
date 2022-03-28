@@ -5,7 +5,11 @@ import styles from './styles';
 import MovieItem from './components/MovieItem';
 import Header from './components/Header';
 
-function HomeScreen() {
+interface Props {
+  navigation: any;
+}
+
+function HomeScreen({navigation}: Props) {
   function onRefresh() {}
 
   return (
@@ -17,7 +21,9 @@ function HomeScreen() {
         }
         ListHeaderComponent={<Header />}
         keyExtractor={item => item.id.toString()}
-        renderItem={({item}) => <MovieItem data={item} />}
+        renderItem={({item}) => (
+          <MovieItem data={item} navigation={navigation} />
+        )}
       />
     </SafeAreaView>
   );

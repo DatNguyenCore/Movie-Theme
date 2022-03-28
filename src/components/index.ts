@@ -1,3 +1,4 @@
 import Text from './Text';
+import NavLight from './NavLight';
 
-export {Text};
+export {Text, NavLight};

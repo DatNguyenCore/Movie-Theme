@@ -4,13 +4,13 @@ import {Colors, Metrics} from '../../../../themes';
 export default StyleSheet.create({
   container: {
     marginHorizontal: Metrics.baseMargin,
-    marginBottom: Metrics.doubleBaseMargin,
+    marginBottom: Metrics.baseMargin,
   },
   desc: {
     marginTop: Metrics.smallMargin,
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: Metrics.baseMargin,
+    marginBottom: Metrics.mediumMargin,
   },
   dot: {
     width: 5,
