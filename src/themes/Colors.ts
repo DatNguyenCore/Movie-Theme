@@ -74,7 +74,7 @@ const Colors = {
     kvpParentalLeave: '#DD5849',
     checkIn: '#234D69',
   },
-  backgroundScreen: '#F5F7F7',
+  backgroundScreen: '#2f2d3e',
   backgroundSecondScreen: '#FFFFF4',
   business: {
     resolve: {
