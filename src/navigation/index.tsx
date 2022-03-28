@@ -1,7 +1,7 @@
 import React from 'react';
 import {StatusBar} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
-import HomeStack from './navigator/MovieStack';
+import SuperheroStack from './navigator/SuperheroStack';
 import {Colors} from '../themes';
 
 function AppNavigator() {
@@ -12,7 +12,7 @@ function AppNavigator() {
         backgroundColor={Colors.backgroundScreen}
       />
       <NavigationContainer>
-        <HomeStack />
+        <SuperheroStack />
       </NavigationContainer>
     </>
   );

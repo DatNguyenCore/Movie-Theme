@@ -1,10 +1,10 @@
 import Screen from './Screen';
-import {Movie} from '../../types/movie';
+import {Superhero} from '../../types/superhero';
 
 type ScreenRouteProps = {
   [Screen.Home]: undefined;
-  [Screen.MovieDetail]: {
-    data: Movie;
+  [Screen.SuperheroDetail]: {
+    data: Superhero;
   };
 };
 

@@ -2,20 +2,20 @@ import React from 'react';
 import {View, TouchableOpacity} from 'react-native';
 import Icons from 'react-native-vector-icons/MaterialIcons';
 import {Text} from '../../../../components';
-import {Movie} from '../../../../types/movie';
+import {Superhero} from '../../../../types/superhero';
 import styles from './styles';
 import {Colors} from '../../../../themes';
 import FastImage from 'react-native-fast-image';
 import {NavigationProps} from '../../../../navigation/configs/NavigationProps';
 import Screen from '../../../../navigation/configs/Screen';
 
-interface Props extends NavigationProps<Screen.MovieDetail> {
-  data: Movie;
+interface Props extends NavigationProps<Screen.SuperheroDetail> {
+  data: Superhero;
 }
 
-function MovieItem({data, navigation}: Props) {
+function SuperheroItem({data, navigation}: Props) {
   function onPress() {
-    navigation.navigate(Screen.MovieDetail, {
+    navigation.navigate(Screen.SuperheroDetail, {
       data,
     });
   }
@@ -45,4 +45,4 @@ function MovieItem({data, navigation}: Props) {
   );
 }
 
-export default MovieItem;
+export default SuperheroItem;

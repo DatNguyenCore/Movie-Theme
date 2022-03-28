@@ -1,3 +1,3 @@
-import * as MovieHelper from './MovieHelper';
+import * as UtilHelper from './UtilHelper';
 
-export {MovieHelper};
+export {UtilHelper};

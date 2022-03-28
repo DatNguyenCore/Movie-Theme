@@ -3,11 +3,11 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {stackNavigatorOptions} from '../configs/navigationStyles';
 import HomeScreen from '../../features/HomeScreen';
 import Screen from '../configs/Screen';
-import MovieDetailScreen from '../../features/Movie/screens/MovieDetailScreen';
+import SuperheroDetailScreen from '../../features/Superhero/screens/SuperheroDetailScreen';
 
 const Stack = createNativeStackNavigator();
 
-function MovieStack() {
+function SuperheroStack() {
   return (
     <Stack.Navigator screenOptions={stackNavigatorOptions}>
       <Stack.Screen
@@ -18,8 +18,8 @@ function MovieStack() {
         }}
       />
       <Stack.Screen
-        name={Screen.MovieDetail}
-        component={MovieDetailScreen}
+        name={Screen.SuperheroDetail}
+        component={SuperheroDetailScreen}
         options={{
           headerShown: false,
         }}
@@ -28,4 +28,4 @@ function MovieStack() {
   );
 }
 
-export default MovieStack;
+export default SuperheroStack;

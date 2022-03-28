@@ -1,6 +1,6 @@
 enum Screen {
   Home = 'HomeScreen',
-  MovieDetail = 'MovieDetailScreen',
+  SuperheroDetail = 'SuperheroDetailScreen',
 }
 
 export default Screen;

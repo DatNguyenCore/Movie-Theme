@@ -7,9 +7,9 @@ import styles from './styles';
 import {NavigationWithRouteProps} from '../../../../navigation/configs/NavigationProps';
 import Screen from '../../../../navigation/configs/Screen';
 
-interface Props extends NavigationWithRouteProps<Screen.MovieDetail> {}
+interface Props extends NavigationWithRouteProps<Screen.SuperheroDetail> {}
 
-function MovieDetailScreen({route}: Props) {
+function SuperheroDetailScreen({route}: Props) {
   const routeData = route.params.data;
 
   return (
@@ -39,4 +39,4 @@ function MovieDetailScreen({route}: Props) {
   );
 }
 
-export default MovieDetailScreen;
+export default SuperheroDetailScreen;

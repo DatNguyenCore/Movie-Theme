@@ -4,28 +4,29 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {useSelector, useDispatch} from 'react-redux';
 import {FooterFlatList, NoData} from '../../components';
 import styles from './styles';
-import MovieItem from './components/MovieItem';
+import SuperheroItem from './components/SuperheroItem';
 import Header from './components/Header';
 import {NavigationProps} from '../../navigation/configs/NavigationProps';
 import Screen from '../../navigation/configs/Screen';
-import MovieActions from '../../reduxs/reducer/MovieReducer';
+import SuperheroActions from '../../reduxs/reducer/SuperheroReducer';
 import {RootState} from '../../reduxs';
 import {Colors} from '../../themes';
+import {Superhero} from '../../types/superhero';
 
-interface Props extends NavigationProps<Screen.MovieDetail> {}
+interface Props extends NavigationProps<Screen.SuperheroDetail> {}
 
 function HomeScreen({navigation}: Props) {
   const {data, fetching, textSearch} = useSelector(
-    (state: RootState) => state.movie,
+    (state: RootState) => state.superhero,
   );
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(MovieActions.getMovies());
+    dispatch(SuperheroActions.getSuperheroes());
   }, [dispatch]);
 
   function onRefresh() {
-    dispatch(MovieActions.getMovies());
+    dispatch(SuperheroActions.getSuperheroes());
   }
 
   function renderFooter() {
@@ -38,16 +39,16 @@ function HomeScreen({navigation}: Props) {
     return <NoData />;
   }
 
-  const movieList = useMemo(() => {
-    return data.filter(movie => {
-      return movie.textForSearch.toLocaleLowerCase().includes(textSearch);
+  const superheroList = useMemo(() => {
+    return data.filter((item: Superhero) => {
+      return item.textForSearch.toLocaleLowerCase().includes(textSearch);
     });
   }, [data, textSearch]);
 
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
-        data={movieList}
+        data={superheroList}
         refreshControl={
           <RefreshControl
             tintColor={Colors.white}
@@ -61,7 +62,7 @@ function HomeScreen({navigation}: Props) {
         ListEmptyComponent={renderEmptyList()}
         keyExtractor={item => item.id.toString()}
         renderItem={({item}) => (
-          <MovieItem data={item} navigation={navigation} />
+          <SuperheroItem data={item} navigation={navigation} />
         )}
       />
     </SafeAreaView>

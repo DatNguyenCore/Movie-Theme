@@ -36,6 +36,7 @@ export default StyleSheet.create({
     fontSize: Fonts.size.default,
     color: Colors.white,
     flex: 1,
+    height: 45,
   },
   clearBtn: {
     padding: 10,

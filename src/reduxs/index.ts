@@ -4,12 +4,12 @@ import {persistStore, persistReducer} from 'redux-persist';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from '../saga';
 import RootReducer from './reducer/rootReducer';
-import {MovieState} from './reducer/MovieReducer/types';
+import {SuperheroState} from './reducer/SuperheroReducer/types';
 
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  whitelist: ['movie'],
+  whitelist: ['superhero'],
 };
 
 const persistedReducer = persistReducer(persistConfig, RootReducer);
@@ -20,12 +20,10 @@ const store = createStore(persistedReducer, applyMiddleware(sagaMiddleware));
 
 sagaMiddleware.run(rootSaga);
 
-export interface RootState {}
-
 export const persistor = persistStore(store);
 
 export interface RootState {
-  movie: MovieState;
+  superhero: SuperheroState;
 }
 
 export default store;

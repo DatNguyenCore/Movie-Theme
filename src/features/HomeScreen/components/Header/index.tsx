@@ -6,7 +6,7 @@ import {useDispatch} from 'react-redux';
 import styles from './styles';
 import {Colors, Images} from '../../../../themes';
 import {Text} from '../../../../components';
-import MovieActions from '../../../../reduxs/reducer/MovieReducer';
+import SuperheroActions from '../../../../reduxs/reducer/SuperheroReducer';
 
 function Header() {
   const [text, setText] = useState<string>('');
@@ -14,12 +14,12 @@ function Header() {
 
   function onSearch(value: string) {
     setText(value);
-    dispatch(MovieActions.searchMovie(value.toLocaleLowerCase()));
+    dispatch(SuperheroActions.searchSuperhero(value.toLocaleLowerCase()));
   }
 
   function onClearSearch() {
     setText('');
-    dispatch(MovieActions.searchMovie(''));
+    dispatch(SuperheroActions.searchSuperhero(''));
   }
 
   function renderClearButton() {
