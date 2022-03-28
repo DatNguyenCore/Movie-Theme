@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useMemo} from 'react';
 import {FlatList, RefreshControl} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {useSelector, useDispatch} from 'react-redux';
@@ -15,8 +15,9 @@ import {Colors} from '../../themes';
 interface Props extends NavigationProps<Screen.MovieDetail> {}
 
 function HomeScreen({navigation}: Props) {
-  const data = useSelector((state: RootState) => state.movie.data);
-  const fetching = useSelector((state: RootState) => state.movie.fetching);
+  const {data, fetching, textSearch} = useSelector(
+    (state: RootState) => state.movie,
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -37,10 +38,16 @@ function HomeScreen({navigation}: Props) {
     return <NoData />;
   }
 
+  const movieList = useMemo(() => {
+    return data.filter(movie => {
+      return movie.name.toLocaleLowerCase().includes(textSearch);
+    });
+  }, [data, textSearch]);
+
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
-        data={data}
+        data={movieList}
         refreshControl={
           <RefreshControl
             tintColor={Colors.white}

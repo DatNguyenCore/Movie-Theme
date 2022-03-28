@@ -14,11 +14,12 @@ function Header() {
 
   function onSearch(value: string) {
     setText(value);
-    dispatch(MovieActions.searchMovie(value));
+    dispatch(MovieActions.searchMovie(value.toLocaleLowerCase()));
   }
 
   function onClearSearch() {
     setText('');
+    dispatch(MovieActions.searchMovie(''));
   }
 
   function renderClearButton() {
@@ -49,9 +50,11 @@ function Header() {
       <View>
         <TextInput
           style={styles.textInput}
-          returnKeyType="search"
+          returnKeyType="done"
           value={text}
           onChangeText={onSearch}
+          placeholder="Search..."
+          placeholderTextColor={Colors.grey.lighter}
         />
         {renderClearButton()}
       </View>

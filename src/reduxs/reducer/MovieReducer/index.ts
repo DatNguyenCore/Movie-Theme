@@ -1,12 +1,12 @@
 import {createReducer, createActions} from 'reduxsauce';
 import Immutable from 'seamless-immutable';
-import {MovieState} from './types';
-import {Movie} from '../../../types/movie';
+import {MovieState, MoviesSuccessPayload, SearchMoviePayload} from './types';
 
 // =========== Create State ===========
 const INITIAL_STATE = Immutable<MovieState>({
   data: [],
   fetching: false,
+  textSearch: '',
 });
 
 // =========== Create Action ===========
@@ -34,7 +34,7 @@ const getMovies = (state: MovieState) => {
   };
 };
 
-const getMoviesSuccess = (state: MovieState, {data}: {data: Movie[]}) => {
+const getMoviesSuccess = (state: MovieState, {data}: MoviesSuccessPayload) => {
   return {
     ...state,
     data,
@@ -49,14 +49,10 @@ const getMoviesFailure = (state: MovieState) => {
   };
 };
 
-const searchMovie = (state: MovieState, {text}: {text: string}) => {
+const searchMovie = (state: MovieState, {text}: SearchMoviePayload) => {
   return {
     ...state,
-    data: state.data.filter(movie => {
-      return movie.name
-        .toLocaleLowerCase()
-        .startsWith(text.toLocaleLowerCase());
-    }),
+    textSearch: text,
   };
 };
 
