@@ -32,8 +32,8 @@ const Colors = {
     darker: '#434343',
     dark: '#777777',
     light: '#B0B0B0',
-    lighter: '#ECECEC',
-    lightest: '#636465',
+    lighter: '#696c75',
+    lightest: '#494b55',
   },
 
   inputBorder: '#CDDEFE',
