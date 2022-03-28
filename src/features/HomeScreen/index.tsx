@@ -4,10 +4,10 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import styles from './styles';
 import MovieItem from './components/MovieItem';
 import Header from './components/Header';
+import {NavigationProps} from '../../navigation/configs/NavigationProps';
+import Screen from '../../navigation/configs/Screen';
 
-interface Props {
-  navigation: any;
-}
+interface Props extends NavigationProps<Screen.MovieDetail> {}
 
 function HomeScreen({navigation}: Props) {
   function onRefresh() {}

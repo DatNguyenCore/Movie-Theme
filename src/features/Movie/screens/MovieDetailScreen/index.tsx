@@ -4,14 +4,13 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import FastImage from 'react-native-fast-image';
 import {Text, NavLight} from '../../../../components';
 import styles from './styles';
-import {Movie} from '../../../../types/movie';
+import {NavigationWithRouteProps} from '../../../../navigation/configs/NavigationProps';
+import Screen from '../../../../navigation/configs/Screen';
 
-interface Props {
-  route: any;
-}
+interface Props extends NavigationWithRouteProps<Screen.MovieDetail> {}
 
 function MovieDetailScreen({route}: Props) {
-  const routeData = route.params.data as Movie;
+  const routeData = route.params.data;
 
   return (
     <SafeAreaView style={styles.container}>

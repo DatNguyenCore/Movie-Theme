@@ -6,11 +6,11 @@ import {Movie} from '../../../../types/movie';
 import styles from './styles';
 import {Colors} from '../../../../themes';
 import FastImage from 'react-native-fast-image';
+import {NavigationProps} from '../../../../navigation/configs/NavigationProps';
 import Screen from '../../../../navigation/configs/Screen';
 
-interface Props {
+interface Props extends NavigationProps<Screen.MovieDetail> {
   data: Movie;
-  navigation: any;
 }
 
 function MovieItem({data, navigation}: Props) {
